@@ -24,8 +24,8 @@ def add_student(students, grades):
       
 def show_all_students():
       print("STUDENTS:")
-      for i in students:
-            print(i)
+      for i in range(len(students)):
+            print(students [i], "-" , grades[i])
       
 
 def find_student(students, grades, name):
@@ -61,7 +61,7 @@ def average_score():
       else:
             print("Нет оценок для расчета")
 def exit():
-      pass
+      print("Пока пока")
 
 def menu():
         while True:
@@ -79,23 +79,27 @@ def menu():
                 print(choice)
             except ValueError:
                   print("Ввели не число")
-            if choice == 1:
-                  add_student(students, grades)
-            elif choice == 2:
+            try:      
+                if choice == 1:
+                      add_student(students, grades)
+                elif choice == 2:
                   show_all_students()
-            elif choice == 3:
-                  find_student(students, grades, name)
-            elif choice == 4:
-                  change_score()
-            elif choice == 5:
-                  delete_student()
-            elif choice == 6:
-                  average_score()
-            elif choice == 0:
-                  exit()
-            else:
-                  print("Ошибка!!! Такого пункта нет в меню")
-                
+                elif choice == 3:
+                      find_student(students, grades, name)
+                elif choice == 4:
+                      change_score()
+                elif choice == 5:
+                      delete_student()
+                elif choice == 6:
+                      average_score()
+                elif choice == 0:
+                      exit()
+                      break
+                else:
+                      print("Ошибка!!! Такого пункта нет в меню")
+            except ValueError:
+                 print("ОШИБКА" \
+                 "ВЫ ЧТО ТО НЕ ПРАВИЛЬНО ВВЕЛИ")   
 
 
 
